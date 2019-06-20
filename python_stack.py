@@ -49,12 +49,45 @@ def modify_checker(words):
             b.push(word)
         else:
             if b.isEmpty():
-                balanced = False
+                status = False
             else:
-                b.pop()
+                top = b.pop()
+                if not matches(top, word):
+                    status = False
+        cur = cur + 1
+    if status and b.isEmpty():
+        return True
+    else:
+        return False
 
 def matches(open,close):
     opens = "({["
-    closes = "]})"
+    closes = ")}]"
+    return opens.index(open) == closes.index(close)
 
-print(checker('((()))'))
+'''print(checker('((()))'))
+print(modify_checker('{[(]}'))'''
+
+class Queue:
+    def __init__(self):
+        self.things=[]
+
+    def isBlank(self):
+        return self.things == []
+
+    def enqueue(self, thing):
+        self.things.insert(0, thing)      #list.insert(index, element)
+
+    def dequeue(self):
+        return self.things.pop()
+
+    def weight(self):
+        return len(self.things)
+
+q = Queue()
+q.enqueue(3)
+q.enqueue('dog')
+q.dequeue()
+q.dequeue()
+print(q.weight())
+print(q.isBlank())
