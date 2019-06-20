@@ -17,9 +17,44 @@ class Stack:
     def size(self):
         return len(self.items)
 
-s = Stack()
-print(s.isEmpty())
-s.push(4)
-s.push('A')
-print(s.peek())
-print(s.isEmpty())
+
+def checker(msg):
+    s = Stack()
+    balanced = True
+    index = 0
+
+    while index < len(msg) and balanced:
+        symbol = msg[index]
+        if symbol == "(":
+            s.push(symbol)
+        else:
+            if s.isEmpty():
+                balanced = False
+            else:
+                s.pop()
+        index = index +1
+    if balanced and s.isEmpty():
+        return True
+    else:
+        return False
+
+def modify_checker(words):
+    b = Stack()
+    status = True
+    cur = 0
+
+    while cur < len(words) and status:
+        word = words[cur]
+        if word in "({[":
+            b.push(word)
+        else:
+            if b.isEmpty():
+                balanced = False
+            else:
+                b.pop()
+
+def matches(open,close):
+    opens = "({["
+    closes = "]})"
+
+print(checker('((()))'))
