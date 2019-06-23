@@ -35,7 +35,7 @@ class Task:
     def waitTime(self, currenttime):
         return currenttime - self.timestamp
 
-from python_stack.py import Queue
+from python_stack import Queue
 def simulation(numSeconds, pagesPerMinute):
     labprinter = Printer(pagesPerMinute)
     printQueue = Queue()
@@ -46,14 +46,14 @@ def simulation(numSeconds, pagesPerMinute):
             task = Task(currentSecond)
             printQueue.enqueue(task)
 
-        if (not labprinter.busy()) and (not printQueue.isEmpty()):
+        if (not labprinter.busy()) and (not printQueue.isBlank()):
             nexttask = printQueue.dequeue()
             waitingtimes.append(nexttask.waitTime(currentSecond))
             labprinter.startNext(nexttask)
 
         labprinter.tick()
     averageWait = sum(waitingtimes)/len(waitingtimes)
-    print("Average wait %6.2f secs %3d tasks remaining."%(averageWait,printQueue.size()))
+    print("Average wait %6.2f secs %3d tasks remaining."%(averageWait,printQueue.weight()))
 
 def newPrintTask():
     num = random.randrange(1,181)
