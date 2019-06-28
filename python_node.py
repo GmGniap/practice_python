@@ -15,5 +15,9 @@ class Node:
     def setNext(self,newnext):
         self.next = newnext
 
-temp = Node(115)
-temp.getData()
+class UnorderedList:
+    def __init__(self):
+        self.head = None
+
+    def isEmpty(self):
+        return self.head == None
