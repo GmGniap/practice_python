@@ -18,6 +18,7 @@ In later,I would like to add my solutions for Codewars to this Git Repo.
  * inheritance
  * encapsulation
  * polymorphism
+ 
 2.Concurrent & Parallel Programming
  * Locks
  * Deadlocks
@@ -25,4 +26,5 @@ In later,I would like to add my solutions for Codewars to this Git Repo.
  * Threading
  * Queue
  * Multiprocessing
+ 
 3.(Adv) Socket Programming
