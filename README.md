@@ -28,3 +28,5 @@ In later,I would like to add my solutions for Codewars to this Git Repo.
  * Multiprocessing
  
 3.(Adv) Socket Programming
+
+To install GeoPandas on window 10 , you need to download related packages (Fiona,Pyproj,Rtree,Shapely) .whl files from the folder. As my requirements , these .whl files are for Window x64 & Python 3.7. If you have different versions of window & python , you need to find related files.

@@ -84,6 +84,8 @@ class Queue:
     def weight(self):
         return len(self.things)
 
+    def g
+
 q = Queue()
 q.enqueue(3)
 q.enqueue('dog')
