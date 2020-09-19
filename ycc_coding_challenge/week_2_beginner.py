@@ -4,7 +4,6 @@ arr = []
 arr.append(X)
 #print(arr)
 
-#if (a+b) >= Y:
 a = X//Y
 b = X%Y
 X = a + b
