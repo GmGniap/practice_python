@@ -1,4 +1,6 @@
-new_dic = {}
+new_dic = [1, 3, 5, 4, 10]
+print(max(new_dic))
+# print(new_dic.get('candy',-1))
 #test = input().split()
 
 '''
@@ -16,7 +18,12 @@ for name in test:
 print(new_dic)
 '''
 
+'''
 jjj = { "Thet" : 96, "Paing" :8, "Shwe" : 100, "Myo": 95}
+for i in jjj:
+    print(i)
+
+
 print(list(jjj))
 print(jjj.keys())
 print(jjj.values())
@@ -26,3 +33,4 @@ print(new[-1])
 
 new_jjj = sorted(jjj.values())
 print(new_jjj)
+'''
