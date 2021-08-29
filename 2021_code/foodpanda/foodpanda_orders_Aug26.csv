@@ -1,0 +1,51 @@
+Restaurant,Date,Cost,Status,Items
+မြိန်မြိန်လေး စားဖွယ်စုံ (Halal),2021-08-26,"MMK5,250",Cancelled,"['1xမှိုကဇွန်း,1xကြက်ပင်စိမ်းဟင်း']"
+မဟာ,2021-08-25,"MMK4,550",Cancelled,"['2xBreakfastFriedRice,1xSamosa,2xSteamedMilkTea']"
+တာတူးရသာဒန်ပေါက်,2021-08-24,"MMK2,950",Cancelled,['1xChickenOilCurry']
+WHAT A CHICKEN (City Mall),2021-08-24,"MMK5,200",Cancelled,"['1xBBQChicken,1xSpicyFriedChicken,1xPlainPorridge']"
+မြိန်မြိန်လေး စားဖွယ်စုံ (Halal),2021-08-23,"MMK2,250",Cancelled,"['1xခရမ်းချဉ်သီးအစာသွပ်,1xအစုံသုပ်']"
+မဟာ,2021-08-23,"MMK2,950",Cancelled,"['1xMohingha,1xMohingha,1xFriedMatpe']"
+နေရီရီ,2021-08-22,"MMK5,250",Cancelled,"['1xအခေါက်အသားကင်ပဲချိုရည်ဆမ်း,1xGrilledPorkRingSalad']"
+Titu’s Indian Bistro (Junction City),2021-08-21,"MMK4,850",Cancelled,"['1xChickenCurryDailySpecial1,1xSambalDal,1xSamosaSalad']"
+Super King ခုနစ်လွှာပေါက်စီ (လမ်းမတော်),2021-08-21,"MMK4,150",Cancelled,"['1xTea,1xCoffee,1xChickenSevenlayersBaozi,1xPorkSevenlayersBaozi,1xBlackBeanSevenlayersBaozi']"
+Shwe Nyaung Pin  Rice Shop,2021-08-20,"MMK6,750",Cancelled,"['1xရုံးပတီသီးကြော်,1xကန်စွန်းပလိန်းကြော်,1xအစိမ်းကြော်,1xငါးဘက်မွှေ']"
+မဟာ,2021-08-20,"MMK5,850",Cancelled,"['2xSteamedMilkTea,1xNannPyarSalad,1xNannGyiSalad']"
+မြိန်မြိန်လေး စားဖွယ်စုံ (Halal),2021-08-18,"MMK4,950",Cancelled,"['1xအစုံသုပ်,1xယိုးဒယားကြက်ကြော်']"
+မဟာ,2021-08-18,"MMK4,550",Cancelled,"['2xBreakfastFriedRice,1xFriedMatpe,1xMilk,1xSteamedMilkTea']"
+မြိန်မြိန်လေး စားဖွယ်စုံ (Halal),2021-08-17,"MMK5,050",Cancelled,"['1xကြက်ကုန်းဘောင်,1xအစိမ်းကြော်']"
+New Lwin ( Burmese Cuisine ),2021-08-16,"MMK4,550",Cancelled,"['1xVillageStyleChickenCurry,1xDuckEggCurry,1xSalad']"
+မြိန်မြိန်လေး စားဖွယ်စုံ (Halal),2021-08-16,"MMK5,250",Cancelled,"['1xကြက်ကချင်ချက်,1xမှိုကဇွန်း']"
+Nilar Biryani(Pabedan),2021-08-15,"MMK4,930",Cancelled,"['1xVegetableMixedFruitsBiryani,1xChickenCurry']"
+အောင်မြန်မာ (၂),2021-08-14,"MMK4,450",Cancelled,['1xဝက်သားလုံးချိုချဉ်ကြော်']
+Food Streat  (I Man),2021-08-14,"MMK6,750",Cancelled,"['1xStewedPork,1xBraisedPorkChop']"
+မဟာ,2021-08-13,"MMK4,550",Cancelled,"['2xBreakfastFriedRice,2xSteamedMilkTea,1xSamosa']"
+မြိန်မြိန်လေး စားဖွယ်စုံ (Halal),2021-08-12,"MMK4,750",Cancelled,"['1xပြောင်းဖူးလက်ဖက်ထောင်း,1xကြက်ပင်စိမ်းဟင်း']"
+Aung Mingalar Shan Noodle,2021-08-12,"MMK4,850",Cancelled,"['1xဆီချက်ခေါက်ဆွဲအသုပ်,1xရှမ်းခေါက်ဆွဲအသုပ်']"
+Shwe Kanbawza,2021-08-11,"MMK6,250",Cancelled,['1xဝက်ဘီးစတိတ်']
+King Lashio (Yay Kyaw),2021-08-11,"MMK3,050",Cancelled,"['1xPorkPaukSi,1xChickenPaukSi,1xBeanPaukSi,1xCeylonTea']"
+မြောင်းမြဒေါ်နီ မုန့်ဟင်းခါး,2021-08-11,"MMK3,050",Cancelled,['2xMohinga']
+Shwe Mingalar Indian Restaurant,2021-08-10,"MMK4,750",Cancelled,"['2xSamosa,1xMuttonMasala,1xSambar']"
+လျှာလည်လည်ပလာတာ,2021-08-10,"MMK3,450",Cancelled,"['1xEggParatha,1xChickenKeemaParatha']"
+မြိန်မြိန်လေး စားဖွယ်စုံ (Halal),2021-08-09,"MMK6,050",Cancelled,"['1xကြက်မလေးရှားကုန်းဘောင်,1xပုန်းရည်ကြီးသုပ်,1xအစိမ်းကြော်']"
+Shan Kitchen,2021-08-09,"MMK5,850",Cancelled,"['1xP05InlayHinHtoke,1xFriedKhawPoat(FriedpoundedStickyRicewithBlackSesame),1xFriedRicewithBeans']"
+ဗစ်မိလ္လာဟ်,2021-08-07,"MMK3,950",Cancelled,"['1xTofuSalad,1xChickenKapoung']"
+မြိန်မြိန်လေး စားဖွယ်စုံ (Halal),2021-08-06,"MMK3,050",Cancelled,"['1xခရမ်းချဉ်သီးအစာသွပ်,1xအစိမ်းကြော်']"
+Nan Yin,2021-08-06,"MMK4,250",Cancelled,['1xမြေအိုးမြီးရှည်']
+Aung Ngwe Restaurant,2021-08-06,"MMK4,000",Cancelled,['1xFriedNoodle']
+မွှေးထမင်းဆိုင်,2021-08-05,"MMK4,750",Cancelled,"['1xChickenCurrywithPotato,1xချဉ်ပေါင်ကြော်']"
+King Lashio (Yay Kyaw),2021-08-05,"MMK5,750",Cancelled,"['1xChickenPaukSi,2xCeylonTea,1xPorkPaukSi,1xBeanPaukSi,1xThickNoodleSalad']"
+မြိန်မြိန်လေး စားဖွယ်စုံ (Halal),2021-08-04,"MMK5,250",Cancelled,"['1xမှိုကဇွန်း,1xကြက်ကုန်းဘောင်']"
+ထူး စားသောက်ဆိုင်,2021-08-04,"MMK2,950",Cancelled,['1xPrawnFishPasteCurryandAssortedVegetables']
+Ramen Monster (Yaw Min Gyi Street),2021-08-04,"MMK5,450",Cancelled,['1xChickenSpicyRamen']
+Mogok Noodle Bar (Botahtaung),2021-08-04,"MMK4,650",Cancelled,"['1xSourShanRice,1xWarmTofu']"
+အောင်မြန်မာ,2021-08-03,"MMK3,750",Cancelled,['1xSteamedSweetPork']
+New Lwin ( Burmese Cuisine ),2021-08-03,"MMK5,950",Cancelled,"['1xTomatoSalad,1xVillageStyleChickenCurry,1xFishCurry']"
+စိန်နမ့်ခမ်း ရှမ်းခေါက်ဆွဲဆိုင်,2021-08-02,"MMK3,950",Cancelled,"['1xDumplingSoup,1xFloorNoodlewithGarlicOil']"
+Shwe Mingalar Indian Restaurant,2021-08-02,"MMK6,950",Cancelled,"['1xSilomTea,1xParota,1xChickenMasala,1xSambar,1xVegetarianFried']"
+မဟာနွယ် မြန်မာထမင်းဟင်း,2021-08-01,"MMK5,250",Cancelled,"['1xFriedPrawnwithChilli,1xBraisedFriedMrigalCarp']"
+Shwe Mingalar Indian Restaurant,2021-07-31,"MMK4,150",Cancelled,"['1xChapati,1xSilomTea,4xSamosa,1xBeanNaanRoti']"
+မြိန်မြိန်လေး စားဖွယ်စုံ (Halal),2021-07-30,"MMK6,250",Cancelled,"['1xမြင်းခွာရွက်သုပ်,1xကြက်ငရုတ်ကောင်းဟင်း,1xကဇွန်းပလိန်း']"
+နန်းရှေ့ (မန္တလေး မုန့်တီ),2021-07-30,"MMK3,450",Cancelled,"['1xKhoTaungRiceNoodle,1xMandalayMeeShay']"
+Shwe Mingalar Indian Restaurant,2021-07-29,"MMK5,850",Cancelled,"['1xMuttonMasala,1xSambar,1xSilomTea']"
+Shwe Mingalar Indian Restaurant,2021-07-29,"MMK4,350",Cancelled,"['1xMuttonMasala,1xSambar']"
+မြိန်မြိန်လေး စားဖွယ်စုံ (Halal),2021-07-28,"MMK5,750",Cancelled,"['1xအမေရိကန်ထမင်းကြော်,1xပရှူးကြာဇံကြော်']"
