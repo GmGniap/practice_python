@@ -1,10 +1,14 @@
+## Scraping research reports list from Forest Department MM
+## October 20,2021
+## Writer - TPM
+
 from requests_html import HTMLSession
 import pandas as pd 
 s= HTMLSession()
 
 query = 'yangon'
-url = f'https://www.ecosia.org/search?q=weather+{query}'
-url2 = f'https://www.google.com/search?q=weather+{query}'
+#url = f'https://www.ecosia.org/search?q=weather+{query}'
+#url2 = f'https://www.google.com/search?q=weather+{query}'
 url3 = 'https://www.forestdepartment.gov.mm/researchbook?page=1'
 
 header = {
