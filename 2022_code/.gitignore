@@ -1,0 +1,5 @@
+# Ignore virtual environment
+environment/
+
+# Ignore test.db file
+test.db 
