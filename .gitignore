@@ -1,0 +1,17 @@
+*.csv
+*.json
+*.pdf
+*.twbx
+
+# Ignore folders from 2021
+2021_code/data_viz/__pycache__
+2021_code/data_viz/assets
+2021_code/data_viz/env
+2021_code/json
+2021_code/scraping/env
+
+# Ignore folders from 2022
+2022_code/__pycache__
+2022_code/environment
+
+
