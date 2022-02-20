@@ -1,18 +1,32 @@
-# Chatbot
-Python Tutorials
+# Learn by myself 
 
-- some projects/code that I wrote in my free time
+This repo contains -
+- personal projects with random ideas 
+- tutorial codes that I followed
 
-### Project List 
-** 2019 code ** - I don't remember what happened to that folder. (HaHa!)
+### Project List
 
-** 2021 code **
-- foodpanda
-  - [[current_working]]
+**2022 code**
+### scraping from Tableau dev page
+  - To collect Tableau featured authors in one place,one dataset
+
+**2021 code**
+### scraping foodpanda :white_check_mark:
   - scraping foodpanda website 
   - publish data into datasette 
 
-- rader chart 
+### rader chart :white_check_mark:
   - make rader chart with Tableau 
   - and also try to make with Python 
-  - Follow from online tutorial 
+  - Follow from online tutorial
+
+### scraping codes
+  - from website
+  - from PDF files
+
+### data viz :triangular_flag_on_post:
+  - Try to make Tree graph with python `dash-plotly`
+  - not success yet 
+
+**2019 code** - I don't remember what happened to that folder. (HaHa!)
+
