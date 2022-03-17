@@ -7,7 +7,7 @@
 ### Project 2 - Scraping Petrol Price from Myanmar Petroleum Trade Association 
 - Tools -> `Selenium` , `Pandas`
 
-![sample image](db.png|width = 100px)
+![sample image](db.png)
 
 - Remaining to do :pencil:
     - [ ] Update to Datasette
