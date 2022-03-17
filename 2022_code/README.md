@@ -6,8 +6,8 @@
 -----
 ### Project 2 - Scraping Petrol Price from Myanmar Petroleum Trade Association 
 - Tools -> `Selenium` , `Pandas`
-- Result SQLite DB > 
-![sample image](db.png)
+
+![sample image](db.png | width = 200)
 
 - Remaining to do :pencil:
     - [ ] Update to Datasette
