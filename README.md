@@ -4,7 +4,7 @@ This repo contains -
 - personal projects with random ideas 
 - tutorial codes that I followed
 
-### Project List
+## Project List :blue_book:
 
 **2022 code**
 ### scraping from Tableau dev page
@@ -28,5 +28,6 @@ This repo contains -
   - Try to make Tree graph with python `dash-plotly`
   - not success yet 
 
-**2019 code** - I don't remember what happened to that folder. (HaHa!)
+**2019 code** 
+- I don't remember what happened to that folder. (HaHa!)
 
