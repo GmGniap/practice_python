@@ -21,6 +21,7 @@ def create_table(conn, person):
     :return: table
     """
     # sql1 = """ CREATE TABLE dev(name TEXT,address TEXT,total_viz INTEGER,follower INTEGER,following INTEGER,url TEXT) """
+    # price_sql = """ CREATE TABLE petrol(name TEXT,address TEXT,total_viz INTEGER,follower INTEGER,following INTEGER,url TEXT) """
     # cursor = conn.cursor()
     sql = ''' INSERT INTO dev(name,address,total_viz,follower,following,url) VALUES(?,?,?,?,?,?) '''
     cur = conn.cursor()

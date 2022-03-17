@@ -3,6 +3,7 @@
 *.pdf
 *.twbx
 *.xlsx
+*.db
 
 # Ignore folders from 2021
 2021_code/data_viz/__pycache__
