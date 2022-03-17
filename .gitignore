@@ -15,5 +15,6 @@
 # Ignore folders from 2022
 2022_code/__pycache__
 2022_code/environment
+2022_code/html
 
 
