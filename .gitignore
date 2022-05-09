@@ -3,7 +3,8 @@
 *.pdf
 *.twbx
 *.xlsx
-*.db
+2022_code/test.db
+2022_code/price.db
 *.DS_Store
 
 # Ignore folders from 2021
