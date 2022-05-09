@@ -4,6 +4,7 @@
 *.twbx
 *.xlsx
 *.db
+*.DS_Store
 
 # Ignore folders from 2021
 2021_code/data_viz/__pycache__
@@ -16,5 +17,5 @@
 2022_code/__pycache__
 2022_code/environment
 2022_code/html
-
+./environment
 
