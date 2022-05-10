@@ -7,6 +7,10 @@ This repo contains -
 ## Project List :blue_book:
 
 **2022 code**
+### Price scraping project
+  - [x] Scrape from Wisarra with daily automation - done!
+  - [ ] Scrape from Petroleum price website - progess
+
 ### scraping from Tableau dev page
   - To collect Tableau featured authors in one place,one dataset
 
