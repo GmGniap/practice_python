@@ -98,8 +98,8 @@ def scrape_daily_mpta():
 
     ## Save scraping_date
     combined_df['scraping_date'] = pd.to_datetime('today').normalize()
-    print("Combined : {}".format(combined_df.shape))
-    print(combined_df.columns)
+    # print("Combined : {}".format(combined_df.shape))
+    # print(combined_df.columns)
 
     ## Add to DB file
     combined_df.to_sql("mpta", conn, if_exists="append")
@@ -160,8 +160,8 @@ def check_wisarra_date():
     # print(test_df.dtypes)
 
     test_df['page_date'] = pd.to_datetime(test_df['page_date'].astype(str),format='%B %d, %Y')
-    print(test_df['page_date'].head())
-    print(test_df.dtypes)
+    # print(test_df['page_date'].head())
+    # print(test_df.dtypes)
     check_today = datetime.today().strftime('%Y-%m-%d')
     # print(check_today)
     # check_today = "2022-05-09"
@@ -183,7 +183,7 @@ if __name__ == "__main__":
     ## Check today date is included in wisarra table or not.
     ## If not - do scraping. If yes , skip.
     if check_wisarra_date() == True:
-        # scrape_wisarra()
+        scrape_wisarra()
         print("Done Wisarra Scraping!")
     else:
         print("Data already existing!!!")
