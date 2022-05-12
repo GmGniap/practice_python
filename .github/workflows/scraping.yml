@@ -1,7 +1,6 @@
 name: Scrape data from Wisarra
 
 on:
-  push:
   workflow_dispatch:
   schedule:
   - cron: '0 16 * * *'
