@@ -1,17 +1,16 @@
-name: Scrape data from Wisarra
+name: Scrape data from Wisarra,MPTA
 
 on:
   schedule:
     - cron: '0 17 * * *'
   workflow_dispatch:
-  
 
 jobs:
   scheduled:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: 2022_code
+        working-directory: ./2022_code
     steps:
     - name: Check out this repo
       uses: actions/checkout@v3
