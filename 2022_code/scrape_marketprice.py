@@ -4,6 +4,7 @@ from sqlite3 import Error
 from datetime import datetime,timedelta
 from requests_html import HTMLSession
 import pandas as pd
+import numpy as np
 # from sqlalchemy import create_engine
 # engine = create_engine('sqlite://price.db',echo=True)
 # conn = engine.connect()
@@ -178,7 +179,43 @@ def check_wisarra_date():
     else:
         print("Not Include!")
         return True
+
+## Scrape Denko price
+def scrape_denko():
+    url = "https://denkomyanmar.com/all-denko-station-daily-fuel-rates/"
+
+    ## Without header and direct pd.read_html got http 403 forbidden error
+    ## that's why to use requests + header
+    header = {
+  "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36",
+  "X-Requested-With": "XMLHttpRequest"
+    }
+    r = requests.get(url, header)
+    df = pd.read_html(r.text)
+    denko = df[0]
+    denko['Division_clean'] = denko['Division'].replace(r'^\s*$',np.nan,regex=True)
+    denko['Division_clean'].fillna(method='ffill',inplace=True)
+    denko['page_date'] = scrape_denko_date(url)
+    print("Daily Denko shape : {}".format(denko.shape))
+    # print(denko.columns)
+    # print(denko.head())
     
+    ## Create sql table
+    ## Add dataframe into db file
+
+## Scrape page_date from Denko page
+def scrape_denko_date(url):
+    # url = "https://denkomyanmar.com/all-denko-station-daily-fuel-rates/"
+    session = HTMLSession()
+    r = session.get(url)
+    # find_class = r.html.find("span.container pageContent", first=True)
+    find_class = r.html.xpath("//section[contains(@class,'elementor-element elementor-element-a3b83a1 elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section')]//div[contains(@class,'elementor-widget-container')]//div[1]")
+    
+    # print(find_class)
+    raw_date = find_class[0].text
+    page_date = raw_date.replace("Effective on ","").strip()
+    # print(page_date)
+    return page_date
 
 ## Check duplicated rows in table & remove if exist
 
@@ -196,7 +233,11 @@ if __name__ == "__main__":
     ## Need to run only one time to scrape old data
     #scrape_old_mpta()
 
+    ## Scrape daily MPTA data
     scrape_daily_mpta()
     print("All Tasks done!")
+
+    ## Scrape Denko
+    # scrape_denko()
     
 
