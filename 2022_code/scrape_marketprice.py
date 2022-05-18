@@ -94,16 +94,21 @@ def scrape_daily_mpta():
             df_2 = scrape_mpta(modify_url)
             df_2['Region'] = "Mandalay"
             print("Daily Mandalay shape : {}".format(df_2.shape))
-    combined_df = pd.concat([df_1,df_2])
+    
+    ## Check dfs shape isn't zero to continue work
+    if(df_1.shape[0] != 0 and df_2.shape[0] != 0):
+        combined_df = pd.concat([df_1,df_2])
 
-    ## Save scraping_date
-    combined_df['scraping_date'] = pd.to_datetime('today').normalize()
-    # print("Combined : {}".format(combined_df.shape))
-    # print(combined_df.columns)
+        ## Save scraping_date
+        combined_df['scraping_date'] = pd.to_datetime('today').normalize()
+        # print("Combined : {}".format(combined_df.shape))
+        # print(combined_df.columns)
 
-    ## Add to DB file
-    combined_df.to_sql("mpta", conn, if_exists="append")
-    print("MPTA Daily Data Update!")
+        ## Add to DB file
+        combined_df.to_sql("mpta", conn, if_exists="append")
+        print("MPTA Daily Data Update!")
+    else:
+        print("Dataframe shapes are showing blank!")
 
 def find_dates():
     ## date format - 10-05-2022
