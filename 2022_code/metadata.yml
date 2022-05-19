@@ -3,8 +3,8 @@ description_html: |-
   <p> This <a href="https://prices.paing.me/">database</a> is aimed to collect Burma Market data (including commodities, groceries prices) as much as possible to be remaining as <b>historical records</b>.</p>
   <p> Data ownership is credited to <u>original data publishers</u> and this project is made with the purpose to improve Open Data Ecosystem in Burma.<p>
   <p> This project is built with Python and mainly use <a href="https://datasette.io/">Datasette</a> library. <p>
-  <p> Data will be updated at 9:30PM in weekdays if data is available. Data dashboard is still in working progress to share with public. <p>
-  <p> Developed by : GmGniap <p>
+  <p> Data will be updated at 9:30PM in weekdays if data is available. Data visualization dashboard is still under progress to share with public. The data is directly taken from associations and retail markets , so it could be different or lower than the real ground price.<p>
+  <p> Developed by : Gniap <p>
 databases:
   price:
     tables:
