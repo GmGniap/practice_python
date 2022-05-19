@@ -18,4 +18,9 @@ databases:
         source: Myanmar Petroleum Trade Association
         source_url: https://www.mpta.org.mm/
         sort_desc: scraping_date
+      denko:
+        description: Daily Fuel Rates from Denko
+        source: Denko Myanmar
+        source_url: https://denkomyanmar.com/all-denko-station-daily-fuel-rates/
+        sort_desc: scraping_date
       
