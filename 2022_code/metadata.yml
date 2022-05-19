@@ -1,0 +1,21 @@
+title : "Burma Price Monitor"
+description_html: |-
+  <p> This <a href="https://prices.paing.me/">database</a> is aimed to collect Burma Market data (including commodities, groceries prices) as much as possible to be remaining as <b>historical records</b>.</p>
+  <p> Data ownership is credited to <u>original data publishers</u> and this project is made with the purpose to improve Open Data Ecosystem in Burma.<p>
+  <p> This project is built with Python and mainly use <a href="https://datasette.io/">Datasette</a> library. <p>
+  <p> Data will be updated at 9:30PM in weekdays if data is available. Data dashboard is still in working progress to share with public. <p>
+  <p> Developed by : GmGniap <p>
+databases:
+  price:
+    tables:
+      wisarra:
+        description: Agricultural market prices data from Wisarra
+        source: Wisarra
+        source_url: https://wisarra.com/en/market-price
+        sort_desc: scraping_date
+      mpta:
+        description: Petroleum prices from MPTA (2015 to current)
+        source: Myanmar Petroleum Trade Association
+        source_url: https://www.mpta.org.mm/
+        sort_desc: scraping_date
+      
