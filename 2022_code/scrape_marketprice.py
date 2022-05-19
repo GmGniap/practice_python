@@ -199,9 +199,10 @@ def scrape_denko():
     print("Daily Denko shape : {}".format(denko.shape))
     # print(denko.columns)
     # print(denko.head())
-    
-    ## Create sql table
+
     ## Add dataframe into db file
+    denko.to_sql("denko",conn,if_exists="append")
+    print("Denko daily update done!")
 
 ## Scrape page_date from Denko page
 def scrape_denko_date(url):
@@ -235,9 +236,9 @@ if __name__ == "__main__":
 
     ## Scrape daily MPTA data
     scrape_daily_mpta()
-    print("All Tasks done!")
 
     ## Scrape Denko
-    # scrape_denko()
+    scrape_denko()
+    print("All Tasks done!")
     
 
