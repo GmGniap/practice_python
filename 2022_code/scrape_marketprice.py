@@ -192,8 +192,10 @@ def scrape_denko():
     }
     r = requests.get(url, header)
     print("Successful request!")
-    df = pd.read_html(r.text)
-    denko = df[0]
+    den_df = pd.read_html(r.text , encoding='utf-8')
+    print("Read HTML success!")
+    denko = den_df[0]
+    print("Put df success!")
     print(denko.columns)
     denko['Division_clean'] = denko['Division'].replace(r'^\s*$',np.nan,regex=True)
     denko['Division_clean'].fillna(method='ffill',inplace=True)
