@@ -1,3 +1,4 @@
+from email import header
 import requests
 import sqlite3
 from sqlite3 import Error
@@ -182,15 +183,17 @@ def check_wisarra_date():
 
 ## Scrape Denko price
 def scrape_denko():
+    session = HTMLSession()
     url = "https://denkomyanmar.com/all-denko-station-daily-fuel-rates/"
-
+    
     ## Without header and direct pd.read_html got http 403 forbidden error
     ## that's why to use requests + header
     header = {
   "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36",
   "X-Requested-With": "XMLHttpRequest"
     }
-    r = requests.get(url, header)
+    r = session.get(url)
+    # r = requests.get(url, header)
     print("Successful request!")
     den_df = pd.read_html(r.text , encoding='utf-8', header=0)
     print("Read HTML success!")
@@ -206,7 +209,7 @@ def scrape_denko():
     # print(denko.head())
 
     ## Add dataframe into db file
-    # denko.to_sql("denko",conn,if_exists="append")
+    denko.to_sql("denko",conn,if_exists="append")
     print("Denko daily update done!")
 
 ## Scrape page_date from Denko page
@@ -228,22 +231,22 @@ def scrape_denko_date(url):
 
 if __name__ == "__main__":
 
+    ## Scrape Denko
+    scrape_denko()
     ## Check today date is included in wisarra table or not.
     ## If not - do scraping. If yes , skip.
-    # if check_wisarra_date() == True:
-    #     scrape_wisarra()
-    #     print("Done Wisarra Scraping!")
-    # else:
-    #     print("Data already existing!!!")
+    if check_wisarra_date() == True:
+        scrape_wisarra()
+        print("Done Wisarra Scraping!")
+    else:
+        print("Data already existing!!!")
     
     ## Need to run only one time to scrape old data
     #scrape_old_mpta()
 
     ## Scrape daily MPTA data
-    # scrape_daily_mpta()
+    scrape_daily_mpta()
 
-    ## Scrape Denko
-    scrape_denko()
     print("All Tasks done!")
     
 
