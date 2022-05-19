@@ -204,6 +204,7 @@ def scrape_denko():
     denko['Division_clean'] = denko['Division'].replace(r'^\s*$',np.nan,regex=True)
     denko['Division_clean'].fillna(method='ffill',inplace=True)
     denko['page_date'] = scrape_denko_date(url)
+    denko['scraping_date'] = pd.to_datetime('today').normalize()
     print("Daily Denko shape : {}".format(denko.shape))
     # print(denko.columns)
     # print(denko.head())
