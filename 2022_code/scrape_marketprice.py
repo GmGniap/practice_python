@@ -191,8 +191,10 @@ def scrape_denko():
   "X-Requested-With": "XMLHttpRequest"
     }
     r = requests.get(url, header)
+    print("Successful request!")
     df = pd.read_html(r.text)
     denko = df[0]
+    print(denko.columns)
     denko['Division_clean'] = denko['Division'].replace(r'^\s*$',np.nan,regex=True)
     denko['Division_clean'].fillna(method='ffill',inplace=True)
     denko['page_date'] = scrape_denko_date(url)
@@ -201,7 +203,7 @@ def scrape_denko():
     # print(denko.head())
 
     ## Add dataframe into db file
-    denko.to_sql("denko",conn,if_exists="append")
+    # denko.to_sql("denko",conn,if_exists="append")
     print("Denko daily update done!")
 
 ## Scrape page_date from Denko page
@@ -225,17 +227,17 @@ if __name__ == "__main__":
 
     ## Check today date is included in wisarra table or not.
     ## If not - do scraping. If yes , skip.
-    if check_wisarra_date() == True:
-        scrape_wisarra()
-        print("Done Wisarra Scraping!")
-    else:
-        print("Data already existing!!!")
+    # if check_wisarra_date() == True:
+    #     scrape_wisarra()
+    #     print("Done Wisarra Scraping!")
+    # else:
+    #     print("Data already existing!!!")
     
     ## Need to run only one time to scrape old data
     #scrape_old_mpta()
 
     ## Scrape daily MPTA data
-    scrape_daily_mpta()
+    # scrape_daily_mpta()
 
     ## Scrape Denko
     scrape_denko()
