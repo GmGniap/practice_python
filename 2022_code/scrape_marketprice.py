@@ -210,7 +210,7 @@ def scrape_denko():
     # print(denko.head())
 
     ## Add dataframe into db file
-    denko.to_sql("denko",conn,if_exists="append")
+    denko.to_sql("denko",conn,if_exists="replace")
     print("Denko daily update done!")
 
 ## Scrape page_date from Denko page
