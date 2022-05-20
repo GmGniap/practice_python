@@ -31,7 +31,6 @@ python3 scrape_marketprice.py
 ./deploy.sh
 ```
 
-
 #### **Workflow**
 
 1. Daily collect/scrape data from websites.
