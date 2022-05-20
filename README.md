@@ -1,10 +1,10 @@
 # Learn by myself 
 
 This repo contains -
-- personal projects with random ideas 
-- tutorial codes that I followed
+  - personal projects with random ideas 
+  - tutorial codes that I followed
 
-![Automate-Scraping Actions Status](https://github.com/GmGniap/practice_python/actions/workflows/automate.yml/badge.svg)]
+> ![Automate-Scraping Actions Status](https://github.com/GmGniap/practice_python/actions/workflows/automate.yml/badge.svg) [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![GitHub commits](https://badgen.net/github/commits/GmGniap/practice_python)](https://GitHub.com/GmGniap/practice_python/commit/)
 
 ## Project List :blue_book:
 
