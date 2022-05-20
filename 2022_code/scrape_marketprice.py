@@ -187,11 +187,12 @@ def scrape_denko():
     url = "https://denkomyanmar.com/all-denko-station-daily-fuel-rates/"
     
     ## Without header and direct pd.read_html got http 403 forbidden error
-    ## that's why to use requests + header
-    header = {
-  "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36",
-  "X-Requested-With": "XMLHttpRequest"
-    }
+    ## that's why to use requests + header - Not Working
+    ## To work with Github Action , use requests-html lib instead of requests
+    # header = {
+    # "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36",
+    # "X-Requested-With": "XMLHttpRequest"
+    # }
     r = session.get(url)
     # r = requests.get(url, header)
     print("Successful request!")
@@ -199,18 +200,19 @@ def scrape_denko():
     print("Read HTML success!")
     denko = den_df[0]
     print("Put df success!")
-    print(denko)
-    print(denko.columns)
+    #print(denko)
+    
     denko['Division_clean'] = denko['Division'].replace(r'^\s*$',np.nan,regex=True)
     denko['Division_clean'].fillna(method='ffill',inplace=True)
     denko['page_date'] = scrape_denko_date(url)
     denko['scraping_date'] = pd.to_datetime('today').normalize()
     print("Daily Denko shape : {}".format(denko.shape))
+    print(denko.columns)
     # print(denko.columns)
     # print(denko.head())
 
     ## Add dataframe into db file
-    denko.to_sql("denko",conn,if_exists="replace")
+    denko.to_sql("denko",conn,if_exists="append")
     print("Denko daily update done!")
 
 ## Scrape page_date from Denko page
