@@ -6,15 +6,15 @@ This repo contains -
 
 ## Project List :blue_book:
 
-### 2022 code
-#### Price Monitoring Project
+### **2022 code**
+#### **Price Monitoring Project**
   - [Project README](2022_code/README.md)
-  - Explore here : [Burma Price Monitor](burma-prices.leetdev.net)
+  - Explore here : [Burma Price Monitor](https://prices.paing.me/)
 
-### 2021 code
-#### Various Projects
+### **2021 code**
+#### **Various Projects**
   - [Repo README](2021_code/README.md)
 
-### 2019 code 
+### **2019 code** 
 - Honestly, I don't remember what happened to that folder. (HaHa!)
 
