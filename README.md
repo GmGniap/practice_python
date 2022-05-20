@@ -4,11 +4,13 @@ This repo contains -
 - personal projects with random ideas 
 - tutorial codes that I followed
 
+[![Automate-Scraping Actions Status](https://github.com/GmGniap/practice_python/workflows/automate/badge.svg)](https://github.com/GmGniap/practice_python/actions)
+
 ## Project List :blue_book:
 
 ### **2022 code**
 #### **Price Monitoring Project**
-  - [Project README](2022_code/README.md)
+  - [Project README](2022_code/README.md#burma-price-monitor)
   - Explore here : [Burma Price Monitor](https://prices.paing.me/)
 
 ### **2021 code**
