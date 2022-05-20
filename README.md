@@ -4,7 +4,7 @@ This repo contains -
 - personal projects with random ideas 
 - tutorial codes that I followed
 
-[![Automate-Scraping Actions Status](https://github.com/GmGniap/practice_python/workflows/automate.yml/badge.svg)](https://github.com/GmGniap/practice_python/actions)
+![Automate-Scraping Actions Status](https://github.com/GmGniap/practice_python/actions/workflows/automate.yml/badge.svg)]
 
 ## Project List :blue_book:
 
