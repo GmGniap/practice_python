@@ -1,4 +1,4 @@
-name: Scrape data and deploy Cloud run
+name: Automate-Scraping
 
 on:
   schedule:
