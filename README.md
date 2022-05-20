@@ -6,32 +6,15 @@ This repo contains -
 
 ## Project List :blue_book:
 
-**2022 code**
-### Price scraping project
-  - [x] Scrape from Wisarra with daily automation - done!
-  - [ ] Scrape from Petroleum price website - progess
+### 2022 code
+#### Price Monitoring Project
+  - [Project README](2022_code/README.md)
+  - Explore here : [Burma Price Monitor](burma-prices.leetdev.net)
 
-### scraping from Tableau dev page
-  - To collect Tableau featured authors in one place,one dataset
+### 2021 code
+#### Various Projects
+  - [Repo README](2021_code/README.md)
 
-**2021 code**
-### scraping foodpanda :white_check_mark:
-  - scraping foodpanda website 
-  - publish data into datasette 
-
-### rader chart :white_check_mark:
-  - make rader chart with Tableau 
-  - and also try to make with Python 
-  - Follow from online tutorial
-
-### scraping codes
-  - from website
-  - from PDF files
-
-### data viz :triangular_flag_on_post:
-  - Try to make Tree graph with python `dash-plotly`
-  - not success yet 
-
-**2019 code** 
-- I don't remember what happened to that folder. (HaHa!)
+### 2019 code 
+- Honestly, I don't remember what happened to that folder. (HaHa!)
 
