@@ -1,10 +1,18 @@
 title : "Burma Price Monitor"
 description_html: |-
+  <h2> About the Project </h2>
   <p> This <a href="https://burma-prices.leetdev.net/">database</a> is aimed to collect Burma Market data (including commodities, groceries prices) as much as possible to be useable nowadays and also remaining as <b>historical records</b>.</p>
   <p> Data ownership is credited to <u>original data publishers</u> and this project is made with the purpose to improve Open Data Ecosystem in Burma.<p>
   <p> This project is built with Python and mainly use <a href="https://datasette.io/">Datasette</a> library. <p>
   <p> Data will be updated at 9:30PM in weekdays if it is available. Data visualization dashboard is still under progress to share with public. The data is directly taken from associations and retail markets , so it could be different or lower than the real ground price based on time & situation.<p>
   <p> Developed by : Gniap <p>
+  <h2> Data sources </h2>
+  <ul>
+    <li> wisarra - Agricultural Market Price </li>
+    <li> mpta - Myanmar Petroleum Trade Association </li>
+    <li> denko - Daily Fuel rates from Denko Myanmar </li>
+    <li> starfish - Petroleum Market Price </li>
+  </ul>
 databases:
   price:
     tables:

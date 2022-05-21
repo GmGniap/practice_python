@@ -11,7 +11,7 @@ This repo contains -
 ### **2022 code**
 #### **Price Monitoring Project**
   - [Project README](2022_code/README.md#burma-price-monitor)
-  - Explore here : [Burma Price Monitor](https://prices.paing.me/)
+  - Explore here : [Burma Price Monitor](https://burma-prices.leetdev.net/)
 
 ### **2021 code**
 #### **Various Projects**
