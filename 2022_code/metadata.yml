@@ -23,4 +23,9 @@ databases:
         source: Denko Myanmar
         source_url: https://denkomyanmar.com/all-denko-station-daily-fuel-rates/
         sort_desc: scraping_date
+      starfish:
+        description: Daily Fuel Rates from Starfish Petroleum Market
+        source: Starfish Myanmar
+        source_url: https://starfishmyanmar.com/market-price
+        sort_desc: scraping_date
       
