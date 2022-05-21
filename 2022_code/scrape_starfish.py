@@ -40,13 +40,16 @@ def update_starfish():
     ## Daily data update
     t = datetime.strftime(datetime.today(), '%Y-%m-%d')
     y = datetime.strftime(datetime.today() - timedelta(days=1),'%Y-%m-%d')
-    single_url = f"https://starfishmyanmar.com/market-price/history?datelist={y}"
+    single_url = f"https://starfishmyanmar.com/market-price/history?datelist={t}"
     daily_data = scrape_starfish(single_url)
-    daily_data['scraping_date'] = pd.to_datetime('today').normalize()
-    daily_data.to_sql("starfish", conn, if_exists="append")
-    print(daily_data.head())
-    print("Starfish daily data updated!")
-    print("----- x -----")
+    if daily_data.shape[0] != 0:
+        daily_data['scraping_date'] = pd.to_datetime('today').normalize()
+        daily_data.to_sql("starfish", conn, if_exists="append")
+        print(daily_data.head())
+        print("Starfish daily data updated!")
+        print("----- x -----")
+    else:
+        print(f"{t} data shape is empty!")
 
 if __name__ == "__main__":
     update_starfish()
