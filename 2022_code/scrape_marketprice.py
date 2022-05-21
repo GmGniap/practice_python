@@ -1,4 +1,3 @@
-from email import header
 import requests
 import sqlite3
 from sqlite3 import Error
@@ -6,6 +5,8 @@ from datetime import datetime,timedelta
 from requests_html import HTMLSession
 import pandas as pd
 import numpy as np
+from scrape_starfish import update_starfish
+
 # from sqlalchemy import create_engine
 # engine = create_engine('sqlite://price.db',echo=True)
 # conn = engine.connect()
@@ -233,9 +234,12 @@ def scrape_denko_date(url):
 
 
 if __name__ == "__main__":
+    ## Scrape starfish
+    update_starfish()
 
     ## Scrape Denko
     scrape_denko()
+
     ## Check today date is included in wisarra table or not.
     ## If not - do scraping. If yes , skip.
     if check_wisarra_date() == True:
@@ -245,7 +249,7 @@ if __name__ == "__main__":
         print("Data already existing!!!")
     
     ## Need to run only one time to scrape old data
-    #scrape_old_mpta()
+    # scrape_old_mpta()
 
     ## Scrape daily MPTA data
     scrape_daily_mpta()
