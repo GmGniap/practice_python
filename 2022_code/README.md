@@ -2,7 +2,7 @@
 
 ## Burma Price Monitor
 
-- Built with -> `requests-html` , `pandas` , `datasette` , `github-action`, `cloud-run`
+- Built with -> `requests-html` , `pandas` , `datasette` , `github-action`, `cloud-run`, `bigquery`, `sqlite`
 
 #### **About**
 
@@ -15,7 +15,8 @@ Current tracking prices - Rice , Common groceries , Petrol
 1. Petrol price from Myanmar Petroleum Trade Association (short : MPTA)
 2. Common gorceries price from Wisarra
 3. Rice data from Myanmar Rice Association Facebook Page.
-4. Daily price rates from Denko company website
+4. Daily price rates from Denko company website. (starting from 2022 May 19)
+5. Startfish Petroleum port price. (starting from 2019 Dec 29 to current day)
 
 #### **Installation**
 - Install required libraries :
@@ -44,11 +45,13 @@ python3 scrape_marketprice.py
     - [ ] Embed dashboard into webpage
 
 - Datasette
-    - [x] Update metadata.yml
+    - [ ] Manual in Burmese
     - [ ] Add custom template for UI
+    - [x] Update metadata.yml
 
 - Myanmar Rice
-    - [ ] Collect data from Gsheet
+    - [x] Collect data from Gsheet into BigQuery
+    - [ ] BigQuery into SQlite db with python
     - [ ] Insert into price.db
 
 - MPTA : 
@@ -60,7 +63,7 @@ python3 scrape_marketprice.py
 
 - Added resources
     - [x] Denko - May 19
-    - [ ] Starfish Petrol
+    - [x] Starfish Petrol - May 21
 
 ---------
 ### Mini_Project
