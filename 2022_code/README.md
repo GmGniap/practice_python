@@ -14,7 +14,7 @@ Current tracking prices - Rice , Common groceries , Petrol
 
 1. Petrol price from Myanmar Petroleum Trade Association (short : MPTA)
 2. Common gorceries price from Wisarra
-3. Rice data from Myanmar Rice Association Facebook Page.
+3. Rice data from Myanmar Rice Association Facebook Page. (Not update yet)
 4. Daily price rates from Denko company website. (starting from 2022 May 19)
 5. Startfish Petroleum port price. (starting from 2019 Dec 29 to current day)
 
@@ -46,7 +46,9 @@ python3 scrape_marketprice.py
 
 - Datasette
     - [ ] Manual in Burmese
-    - [ ] Add custom template for UI
+    - [ ] Data cleaning script
+        - Should I add another .db for clean data?
+    - [x] Add custom template for UI
     - [x] Update metadata.yml
 
 - Myanmar Rice
@@ -54,11 +56,11 @@ python3 scrape_marketprice.py
     - [ ] BigQuery into SQlite db with python
     - [ ] Insert into price.db
 
-- MPTA : 
+- MPTA :
     - [x] Update to Datasette
     - [x] Automate with Github Action
 
-- Wisarra 
+- Wisarra
     - [x] Update to Datasette
 
 - Added resources
