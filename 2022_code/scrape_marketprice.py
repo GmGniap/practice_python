@@ -36,11 +36,11 @@ def scrape_wisarra():
         save_df['scraping_date'] = pd.to_datetime('today').normalize()
         page_date = scrape_date("https://wisarra.com/en/market-price")
         save_df['page_date'] = page_date
-        print(save_df.columns)
-        print(save_df.head())
+        # print(save_df.columns)
+        # print(save_df.head())
         save_df.to_sql(wisarra_table,conn,if_exists='append')
         print(f"Page {i} is done!")
-    print("Everything updated to SQLite")
+    print("Everything updated for Wisarra")
 
 def scrape_mpta(url):
     r = requests.get(url)
@@ -92,11 +92,11 @@ def scrape_daily_mpta():
         if i == 1:
             df_1 = scrape_mpta(modify_url)
             df_1['Region'] = "Yangon"
-            print("Daily Yangon shape : {}".format(df_1.shape))
+            # print("Daily Yangon shape : {}".format(df_1.shape))
         if i == 2:
             df_2 = scrape_mpta(modify_url)
             df_2['Region'] = "Mandalay"
-            print("Daily Mandalay shape : {}".format(df_2.shape))
+            # print("Daily Mandalay shape : {}".format(df_2.shape))
     
     ## Check dfs shape isn't zero to continue work
     if(df_1.shape[0] != 0 and df_2.shape[0] != 0):
@@ -111,7 +111,7 @@ def scrape_daily_mpta():
         combined_df.to_sql("mpta", conn, if_exists="append")
         print("MPTA Daily Data Update!")
     else:
-        print("Dataframe shapes are showing blank!")
+        print("MPTA dataframe shapes are showing blank!")
 
 def find_dates():
     ## date format - 10-05-2022
@@ -175,11 +175,11 @@ def check_wisarra_date():
     # check_today = "2022-05-09"
 
     if(test_df.page_date == check_today).any():
-        print("Included {}!".format(check_today))
+        print("Wisarra:Date Included {}!".format(check_today))
         return False
         
     else:
-        print("Not Include!")
+        print("Wisarra:Date - Not Include!")
         return True
 
 ## Scrape Denko price
@@ -196,11 +196,11 @@ def scrape_denko():
     # }
     r = session.get(url)
     # r = requests.get(url, header)
-    print("Successful request!")
+    # print("Successful request!")
     den_df = pd.read_html(r.text , encoding='utf-8', header=0)
-    print("Read HTML success!")
+    # print("Read HTML success!")
     denko = den_df[0]
-    print("Put df success!")
+    # print("Put df success!")
     #print(denko)
     
     denko['Division_clean'] = denko['Division'].replace(r'^\s*$',np.nan,regex=True)
@@ -246,7 +246,7 @@ if __name__ == "__main__":
         scrape_wisarra()
         print("Done Wisarra Scraping!")
     else:
-        print("Data already existing!!!")
+        print("Wisarra data already existing!!!")
     
     ## Need to run only one time to scrape old data
     # scrape_old_mpta()
