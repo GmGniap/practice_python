@@ -10,6 +10,9 @@ The base idea of this project is to record the daily struggles of Burma People t
 
 Current tracking prices - Rice , Common groceries , Petrol
 
+### **Visualization**
+- Petroleum dashboard - [Tableau](https://tabsoft.co/3x3qV4L)
+
 #### **Data Sources**
 
 1. Petrol price from Myanmar Petroleum Trade Association (short : MPTA)
@@ -41,7 +44,7 @@ python3 scrape_marketprice.py
 #### Remaining to do :pencil:
 
 - Data Viz
-    - [ ] Create Tableau Dashboard
+    - [ ] Create Overall dashboard
     - [ ] Embed dashboard into webpage
 
 - Datasette
@@ -64,6 +67,7 @@ python3 scrape_marketprice.py
     - [x] Update to Datasette
 
 - Added resources
+    - [ ] MaxMyanmar
     - [x] Denko - May 19
     - [x] Starfish Petrol - May 21
 
