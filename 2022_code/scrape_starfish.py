@@ -1,12 +1,10 @@
 from datetime import datetime
+from numpy import column_stack
 import requests
 import pandas as pd
 from datetime import datetime,timedelta
 import sqlite3
 conn = sqlite3.connect("price.db")
-
-url = "https://starfishmyanmar.com/market-price/history?datelist=2019-12-28,2022-05-19"
-single_url = "https://starfishmyanmar.com/market-price/history?datelist={i}"
 
 header = {
     "referer": "https://starfishmyanmar.com/market-price/graph",
@@ -23,33 +21,59 @@ def scrape_starfish(url):
     cols = head_df.columns
     body = pd.DataFrame(x['data']['body'], columns=cols)
     transpose_df = (body.melt(id_vars=['title','unit'],var_name='Date',value_name='Price'))
-
-    print("Shape : {}".format(transpose_df.shape))
+    print("Starfish Shape : {}".format(transpose_df.shape))
     # print(transpose_df.head())
     return transpose_df
 
-def update_starfish():
+def old_starfish():
+    ## Old data from 2019
+    # url = "https://starfishmyanmar.com/market-price/history?datelist=2019-12-28,2022-05-19"
+    
     ## Add old data into price.db - need to run only one time
-    # old_data = scrape_starfish(url)
-    # old_data['scraping_date'] = pd.to_datetime('today').normalize()
-    # old_data.to_sql("starfish",conn,if_exists="replace")
-    # print(old_data[old_data['Date']=='2020-12-01'])
-    # print("Old data updated")
-    # print("----- x -----")
-
+    url = "https://starfishmyanmar.com/market-price/history?datelist=2022-05-23,2022-05-30"
+    old_data = scrape_starfish(url)
+    old_data['scraping_date'] = pd.to_datetime('today').normalize()
+    old_data.to_sql("starfish",conn,if_exists="append")  # "replace" for the first time
+    print(old_data[old_data['Date']=='2022-05-25'])
+    print("Old data updated")
+    print("----- x -----")
+    
+def update_starfish():
     ## Daily data update
     t = datetime.strftime(datetime.today(), '%Y-%m-%d')
     y = datetime.strftime(datetime.today() - timedelta(days=1),'%Y-%m-%d')
-    single_url = f"https://starfishmyanmar.com/market-price/history?datelist={t}"
-    daily_data = scrape_starfish(single_url)
-    if daily_data.shape[0] != 0:
-        daily_data['scraping_date'] = pd.to_datetime('today').normalize()
-        daily_data.to_sql("starfish", conn, if_exists="append")
-        print(daily_data.head())
-        print("Starfish daily data updated!")
-        print("----- x -----")
-    else:
-        print(f"{t} data shape is empty!")
+    
+    ## below url doesn't work for daily update 
+    # single_url = f"https://starfishmyanmar.com/market-price/history?datelist={t}"
+    
+    ## new url for daily update
+    single_url = f"https://starfishmyanmar.com/market-price/search?date={t}"
+    
+    r = requests.get(single_url, headers=header)
+    x = r.json()
+    # sf = pd.json_normalize(x['data'])
+    page_date = x['data']['date']
+    sf_data = pd.json_normalize(x['data']['market_prices'])
+    if sf_data.shape[0] != 0:
+        sf_data['Date'] = page_date
+        sf_data['scraping_date'] = pd.to_datetime('today').normalize()
+        sf_data.rename(columns = {'name':'title', 'price':'Price'}, inplace=True)
+        sf_data.to_sql("starfish",conn,if_exists="append")
+        
+        print("Starfish daily shape : {}".format(sf_data.shape))
+        print(sf_data.head(2))
+        print("Starfish daily update done!")
+    
+    ## Old daily url code - NOT USED!
+    # daily_data = scrape_starfish(single_url)
+    # if daily_data.shape[0] != 0:
+    #     daily_data['scraping_date'] = pd.to_datetime('today').normalize()
+    #     daily_data.to_sql("starfish", conn, if_exists="append")
+    #     print(daily_data.head())
+    #     print("Starfish daily data updated!")
+    #     print("----- x -----")
+    # else:
+    #     print(f"{t} data shape is empty!")
 
 if __name__ == "__main__":
     update_starfish()
