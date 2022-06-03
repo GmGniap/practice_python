@@ -2,7 +2,7 @@
 
 ## Burma Price Monitor
 
-- Built with -> `requests-html` , `pandas` , `datasette` , `github-action`, `cloud-run`, `bigquery`, `sqlite`
+- Built with -> `requests-html` , `pandas` , `datasette` , `github-action`, `cloud-run`, `bigquery`, `sqlite`, `playwright`
 
 #### **About**
 
@@ -68,6 +68,8 @@ python3 scrape_marketprice.py
 
 - Added resources
     - [ ] MaxMyanmar
+        - [ ] Automate with Github Action
+        - [x] Scrape data - Finished at June 3,22. It took me two or three days to finish it and the most difficult task before I found out how to call POST method JSON. HaHa , Good to learn new things. First time using Playwright.
     - [x] Denko - May 19
     - [x] Starfish Petrol - May 21
 
