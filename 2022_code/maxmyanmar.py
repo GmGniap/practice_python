@@ -1,17 +1,24 @@
 import imp
 from playwright.sync_api import sync_playwright
 import pandas as pd
-from datetime import datetime,timedelta
+from datetime import date, datetime,timedelta
 from bs4 import BeautifulSoup
+import re
 import sqlite3
 conn = sqlite3.connect("price.db")
 
-def scrape_max():
+def scrape_daily_max():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False, slow_mo=50)
         page = browser.new_page()
         page.goto("https://www.maxenergy.com.mm/fuel-prices-list/")
         print(page.title())
+        
+        ## Scrape page date
+        raw_date = page.inner_text('//div[@class="col-md-6 col-xs-12"]')
+        page_date = re.search('(\d{2}\/\d{2}\/\d{4})',raw_date).group(1)
+        print("Page Date:{}".format(page_date))
+        
         page.is_visible('div#collapseRegion_2')
         print("Page is visible!")
         # div_loc = page.inner_html('div#accordionExample')
@@ -33,9 +40,9 @@ def scrape_max():
             ## create dataframe names from list - use vars()
             vars()[location[i]] = scrape_table(vars()[f"data_{i}"])
             vars()[location[i]]['division'] = location[i]
-            print(vars()[location[i]].head())
+            # print(vars()[location[i]].head())
             print(vars()[location[i]].shape)
-            print(type(vars()[location[i]]))
+            # print(type(vars()[location[i]]))
             
             ## Add to temp_df to store temporarily 
             temp_df = pd.concat([combined_df,vars()[location[i]]], ignore_index=True)
@@ -45,18 +52,14 @@ def scrape_max():
             print("--- x ----")
         # combined_df = pd.concat(location,ignore_index=True)
         print(" ==== x ==== ")
+        combined_df['page_date'] = datetime.strptime(page_date, "%d/%m/%Y")
+        combined_df['scraping_date'] = pd.to_datetime('today').normalize()
         print(combined_df.head())
         print(combined_df.shape)
         print(" ==== x ==== ")
-        print(combined_df.tail())
-        # t2 = page.inner_html('div#collapseRegion_2')
-        # mdy = scrape_table(t2)
-        # print(mdy.head())
-        # print(mdy.shape)
-        # print("--- x ----")
-    
-        # print("--- x ----")
+        # print(combined_df.tail())
         browser.close()
+        # return combined_df
 
 ## We need to create custom scrape_table function , 
 ## we can't use pd.read_table because there're extra rows inside td in MaxMyanmar page
@@ -89,5 +92,5 @@ def scrape_table(table):
     return df
     
 if __name__ == "__main__":
-    scrape_max()
+    scrape_daily_max()
 
