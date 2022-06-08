@@ -4,6 +4,7 @@
 *.twbx
 *.xlsx
 2022_code/test.db
+Tutorials/relational_sql/covid19.db
 *.DS_Store
 
 # Ignore folders from 2021
