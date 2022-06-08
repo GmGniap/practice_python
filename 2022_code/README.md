@@ -50,7 +50,9 @@ python3 scrape_marketprice.py
 - Datasette
     - [ ] Manual in Burmese
     - [ ] Data cleaning script
+        - Make sure to use correct data formats in important columns
         - Should I add another .db for clean data?
+    - [ ] Relational Database between different data sources
     - [x] Add custom template for UI
     - [x] Update metadata.yml
 

@@ -13,6 +13,10 @@ This repo contains -
   - [Project README](2022_code/README.md#burma-price-monitor)
   - Explore here : [Burma Price Monitor](https://burma-prices.leetdev.net/)
 
+### **Tutorials**
+#### **Relational db with Python & Sqlite3**
+  - Practice to build relational db with sqlite & python by using Covid 19 dataset.
+
 ### **2021 code**
 #### **Various Projects**
   - [Repo README](2021_code/README.md)
