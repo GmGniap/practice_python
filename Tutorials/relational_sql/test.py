@@ -1,3 +1,5 @@
+## Relational Database Tutorial with COVID19 dataset
+
 import pandas as pd 
 import sqlite3
 from tqdm import tqdm
