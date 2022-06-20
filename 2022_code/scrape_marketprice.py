@@ -71,7 +71,7 @@ def scrape_old_mpta():
 
     ## Connect db file & Create table
     sql_cmd = """ CREATE TABLE mpta(No INTEGER,Date TEXT,Type TEXT,Method TEXT,Min_Price DOUBLE,Max_Price DOUBLE,Region TEXT,Scraping_date TEXT) """
-    create_table("price.db",sql_cmd)
+    run_sql("price.db",sql_cmd)
 
     ## Check tables from db
     check_table("price.db")
@@ -121,8 +121,8 @@ def find_dates():
     return today_format , yesterday
 
 
-## Create initial table
-def create_table(db_file, sql_cmd):
+## Run SQL function
+def run_sql(db_file, sql_cmd):
     """ create database connection
     :param db_file: database file
     :sql_cmd: to execute sql commands
