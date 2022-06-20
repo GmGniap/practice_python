@@ -5,8 +5,13 @@ from datetime import date, datetime,timedelta
 import requests
 import json
 import re
+import time
+from tqdm import tqdm
 import sqlite3
-conn = sqlite3.connect("price.db")
+from scrape_marketprice import run_sql, check_table
+
+# conn = sqlite3.connect("price.db")
+conn = sqlite3.connect("test.db")
 
 def scrape_daily_max():
     with sync_playwright() as p:
@@ -93,44 +98,67 @@ def scrape_table(table):
     return df
 
 def scrape_old_data():
-    try:
-        url = "https://app.maxenergy.com.mm/maxapi/webapi/Price/GetPriceList"
+    ## Drop table for error
+    # drop_cmd = """ DROP TABLE IF EXISTS max_myanmar """
+    # run_sql("test.db", drop_cmd)
+    ## first_time table creation
+    sql_cmd = """ CREATE TABLE IF NOT EXISTS max_myanmar(index_label INTEGER PRIMARY KEY,gradename TEXT,regionid INTEGER,stationid INTEGER,station_code TEXT,effectivedate TEXT,pretransactiondate TEXT,price REAL,transactiondate TEXT) """
+    run_sql("test.db", sql_cmd)
+    check_table("test.db")
+    
+    ## set the first date
+    first_date = datetime.strptime('2020-01-14', '%Y-%m-%d').date()
+    ## get today date
+    t = datetime.today().date()
+    for daily in tqdm(daterange(first_date, t)):
+        daily_date = daily.strftime("%Y-%m-%d")
+        print(f"\n Scraping : {daily_date}")
+        try:
+            url = "https://app.maxenergy.com.mm/maxapi/webapi/Price/GetPriceList"
 
-        payload = json.dumps({
-        "apikey": "R2wwQjRBdTFIbUY4OUFXRTZpbWZuYzhtVkxXd3NBYXdqWXI0Unh6YUNFTGdM",
-        "fromdate": "2020-01-14 12:00:00 AM",
-        "todate": "2020-01-14 11:00:00 PM"
-        })
-        headers = {
-        'content-type': 'application/json',
-        'Cookie': '.AspNetCore.Session=CfDJ8B0ta%2BbvQ0RLgbpaxcGdndgbCvK8BQSCNXPXosRd%2BsHPqTu3gVO7Z%2FTID1K2qyncCqw53HbvlUzTyAVYixfNnnZgMYT2siiOV1L0gzKGdYEe%2BYMldYcAlsYqWyohDi4g8t3Y49A%2FKGPoF4BHk1179zRtsuFT6ujfa6Zg8J%2Fxtzeg'
-        }
+            payload = json.dumps({
+            "apikey": "R2wwQjRBdTFIbUY4OUFXRTZpbWZuYzhtVkxXd3NBYXdqWXI0Unh6YUNFTGdM",
+            "fromdate": f"{daily_date} 12:00:00 AM",
+            "todate": f"{daily_date} 11:00:00 PM"
+            })
+            headers = {
+            'content-type': 'application/json',
+            'Cookie': '.AspNetCore.Session=CfDJ8B0ta%2BbvQ0RLgbpaxcGdndgbCvK8BQSCNXPXosRd%2BsHPqTu3gVO7Z%2FTID1K2qyncCqw53HbvlUzTyAVYixfNnnZgMYT2siiOV1L0gzKGdYEe%2BYMldYcAlsYqWyohDi4g8t3Y49A%2FKGPoF4BHk1179zRtsuFT6ujfa6Zg8J%2Fxtzeg'
+            }
 
-        response = requests.request("POST", url, headers=headers, data=payload)
-        x = response.json()
-        raw_data = x['data']
-        raw_df = pd.json_normalize(raw_data)
-        
-        ## Generate CSV and JSON to check raw data
-        # raw_df.to_csv('./raw1.csv')
-        # with open('raw_data.json', 'w') as output:
-        #     json.dump(x, output)
-        
-        ## Take rows that not price Zero and reset index
-        clean_df = raw_df[raw_df['price'] != 0.0].reset_index(drop=True)
-        print("Done!")
-        
-        print(clean_df.shape)
-        print(clean_df.columns)
-        print(clean_df.head(10))
-    except ValueError as e:
-        print(f"Error : {e}")
+            response = requests.request("POST", url, headers=headers, data=payload)
+            x = response.json()
+            raw_data = x['data']
+            raw_df = pd.json_normalize(raw_data)
+            
+            ## Generate CSV and JSON to check raw data
+            # raw_df.to_csv('./raw1.csv')
+            # with open('raw_data.json', 'w') as output:
+            #     json.dump(x, output)
+            
+            ## Take rows that not price Zero and reset index
+            clean_df = raw_df[raw_df['price'] != 0.0].reset_index(drop=True)
+            print("Done!")
+            
+            print(clean_df.shape)
+            # print(clean_df.columns)
+            # print(clean_df.head(10))
+            clean_df.to_sql("max_myanmar",conn, if_exists="append")
+            time.sleep(3)
+        except ValueError as e:
+            print(f"Error : {e}")
+            continue
+        print("====x====")
+    print("Add old data into Max Myanmar db!")    
+    
 
+def daterange(start_date, end_date):
+    for n in range(int((end_date - start_date).days)):
+        yield start_date + timedelta(n)
 
 if __name__ == "__main__":
     # scrape_daily_max()
-    # scrape_old_data()
-    first_date = datetime.strptime('2020-01-14', '%Y-%m-%d').date()
-    t = datetime.today().date()
-    if first_date != t:
-        print((t - first_date).days)
+    scrape_old_data()
+    
+    
+    
