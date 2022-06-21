@@ -107,7 +107,9 @@ def scrape_old_data():
     check_table("test.db")
     
     ## set the first date
-    first_date = datetime.strptime('2020-01-14', '%Y-%m-%d').date()
+    # first_date = datetime.strptime('2020-01-14', '%Y-%m-%d').date()
+    ## set first date to the error date happened
+    first_date = datetime.strptime('2021-03-13', '%Y-%m-%d').date()
     ## get today date
     t = datetime.today().date()
     for daily in tqdm(daterange(first_date, t)):
@@ -143,8 +145,8 @@ def scrape_old_data():
             print(clean_df.shape)
             # print(clean_df.columns)
             # print(clean_df.head(10))
-            clean_df.to_sql("max_myanmar",conn, if_exists="append")
-            time.sleep(3)
+            clean_df.to_sql("max_myanmar",conn, if_exists="append", index=False)
+            time.sleep(5)
         except ValueError as e:
             print(f"Error : {e}")
             continue
