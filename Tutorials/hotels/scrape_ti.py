@@ -21,23 +21,30 @@ import re
 def scrape_table():
     with open("./Taninthahyi.html") as page:
         soup = BeautifulSoup(page, "html.parser")
-        body = soup.find_all("tr")
+        body = soup.find_all("tbody")
         # print(type(body))
         # print(len(body))
         
+        tables = soup.find_all('table')
         for row_num in range(len(body)):
             row = []
             locate = []
-            for item in body[row_num].findAll("td"):
-                print(item.text)
-                if item.text != ' ':
-                    hotel_name_list = [i.text.strip() for i in item.select('p')]
-                    regex1 = r"(.*?)(?=\s?[Oo]wner\s?Name)"
-                    location_list = [re.match(regex1,i.text.strip()).group(0) for i in item.select('div')]
+            hotel = []
+            for item in body[row_num].find_all("tr"):
+                columns = item.find_all("td")
+                
+                hotel_name_list = [i.text.strip() for i in item.select('p',{'class':'jutooltip'})]
+                if hotel_name_list != []:
+                    hotel.append(str(hotel_name_list[0]))
+    
+            print(hotel)
+            print("===|===")
+                #     regex1 = r"(.*?)(?=\s?[Oo]wner\s?Name)"
+                #     location_list = [re.match(regex1,i.text.strip()).group(0) for i in item.select('div')]
                     
-                    regex2 = r"(?<=[Oo]wner\sName:\s).*(?=\sSr\.No)"
-                    owner_list = [re.findall(regex2,i.text) for i in item.select('div')]
-                    tooltip_list = [i.text.strip() for i in item.select('div')]
+                #     regex2 = r"(?<=[Oo]wner\sName:\s).*(?=\sSr\.No)"
+                #     owner_list = [re.findall(regex2,i.text) for i in item.select('div')]
+                #     tooltip_list = [i.text.strip() for i in item.select('div')]
                 
                 # m = re.match(regex, tooltip_list[0])
                 # location = m.group(0)
@@ -45,10 +52,11 @@ def scrape_table():
                 # item = (item.text).rstrip()
                 # print(tooltip_list[0])
                     # print(tooltip_list)
-                    print(location_list)
-                    print(owner_list)
-                    print("---x---")
-                print("===|===")
+                    
+                        
+                #     print(owner_list)
+                #     print("---x---")
+                    
     # head = body[0]
     # body_rows = body[1:]
     # heading = []
