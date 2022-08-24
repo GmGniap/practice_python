@@ -1,0 +1,36 @@
+title: Demonstrating Metadata from YAML
+description_html: |-
+  <p>This description includes a long HTML string</p>
+  <ul>
+    <li>YAML is better for embedding HTML strings than JSON!</li>
+  </ul>
+databases:
+  chickens:
+    queries:
+      custom_sql:
+        sql: |-
+          select
+            a.name,
+            a.station_id,
+            a.region,
+            a.Price,
+            b.station_name,
+            c.region_name
+          from
+            tableA as a
+            INNER JOIN tableB as b ON a.station_id = b.station_id
+            INNER JOIN tableC as c ON a.region = c.region_id
+          order by
+            a.rowid
+        title: SQL Custom Data
+        hide_sql: True
+    tables:
+      new_table:
+        description: Custom SQL query
+        hide_sql: True
+      tableA:
+        hidden: True
+      tableB:
+        hidden: True
+      tableC:
+        hidden: True
