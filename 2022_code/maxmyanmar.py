@@ -191,6 +191,7 @@ def get_daily_from_api():
         print(clean_df.columns)
         print(clean_df.head(10))
         # clean_df.to_sql("max_myanmar",conn, if_exists="append", index=False)
+        clean_df.to_json("../Tutorials/relational_sqlite_utils/sample_data/daily.json")
         time.sleep(2)
     except ValueError as e:
         print(f"Error : {e}")
