@@ -252,7 +252,7 @@ if __name__ == "__main__":
     # scrape_old_mpta()
 
     ## Scrape daily MPTA data
-    scrape_daily_mpta()
+    # scrape_daily_mpta()
 
     print("All Tasks done!")
     
