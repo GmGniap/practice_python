@@ -49,7 +49,7 @@ def update_starfish():
     ## new url for daily update
     single_url = f"https://starfishmyanmar.com/market-price/search?date={t}"
     
-    r = requests.get(single_url, headers=header)
+    r = requests.get(single_url, headers=header, verify=False)
     x = r.json()
     # sf = pd.json_normalize(x['data'])
     page_date = x['data']['date']
