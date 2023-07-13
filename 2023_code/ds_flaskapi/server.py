@@ -114,7 +114,11 @@ def get_one_student(student_id):
 
 @app.route("/student/<student_id>", methods=["DELETE"])
 def delete_student(student_id):
-    pass
+    student = Student.query.filter_by(id=student_id).first()
+    if app.app_context():
+        db.session.delete(student)
+        db.session.commit()
+    return jsonify({}),200
 
 @app.route("/event/<student_id>", methods=["POST"])
 def create_event(student_id):
@@ -126,6 +130,6 @@ def get_all_events(student_id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port= 8000, debug=True)
 
 
