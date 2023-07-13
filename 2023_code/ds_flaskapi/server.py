@@ -4,7 +4,7 @@ from sqlite3 import Connection as SQLite3Connection
 from datetime import datetime
 from sqlalchemy import event
 from sqlalchemy.engine import Engine
-
+import data_structures.linked_list as ll
 
 ## BTS: WSGI app works as middleware between Python app and server. 
 app = Flask(__name__)
@@ -36,7 +36,7 @@ class Student(db.Model):
     events = db.relationship("Event", cascade="all, delete")
 
 class Event(db.Model):
-    __tablename__ = "event"
+    __tablename__ = "event_table"
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(50))
     details = db.Column(db.String(200))
@@ -60,7 +60,20 @@ def create_student():
 
 @app.route("/student/descending_id", methods=["GET"])
 def get_all_students_descending():
-    pass
+    students = Student.query.all()
+    all_students_ll = ll.LinkedList()
+    
+    for student in students:
+        all_students_ll.insert_beginning(
+            {
+                "id":student.id,
+                "name":student.name,
+                "email":student.email,
+                "address":student.address,
+                "phone":student.phone
+            }
+        )
+    return jsonify(all_students_ll.to_list()), 200
 
 @app.route("/student/<student_id>", methods=["GET"])
 def get_one_student(student_id):
