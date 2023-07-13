@@ -29,7 +29,7 @@ now = datetime.now()
 
 faker = Faker()
 
-'''
+
 # create dummy users
 for i in range(200):
     name = faker.name()
@@ -40,7 +40,7 @@ for i in range(200):
     with app.app_context():
         db.session.add(new_student)
         db.session.commit()
-'''
+
 
 # create dummy blog posts
 for i in range(200):
