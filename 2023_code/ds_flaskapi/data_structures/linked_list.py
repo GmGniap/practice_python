@@ -8,6 +8,7 @@ class LinkedList:
         self.head = None
         self.last_node = None
     
+    ## to use in api return
     def to_list(self):
         lst = []
         if self.head is None:
@@ -69,7 +70,13 @@ class LinkedList:
         self.last_node.next = Node(data, None)
         self.last_node = self.last_node.next ## need to assign last node
         
-            
+    def get_student_by_id(self, student_id):
+        node = self.head
+        while node:
+            if node.data["id"] == int(student_id):
+                return node.data
+            node = node.next
+        return None      
     
 '''General test
 ll = LinkedList()

@@ -75,9 +75,42 @@ def get_all_students_descending():
         )
     return jsonify(all_students_ll.to_list()), 200
 
+@app.route("/student/ascending_id", methods=["GET"])
+def get_all_students_ascending():
+    students = Student.query.all()
+    all_students_ll = ll.LinkedList()
+    
+    for student in students:
+        all_students_ll.insert_at_end(
+            {
+                "id":student.id,
+                "name":student.name,
+                "email":student.email,
+                "address":student.address,
+                "phone":student.phone
+            }
+        )
+    return jsonify(all_students_ll.to_list()), 200
+
 @app.route("/student/<student_id>", methods=["GET"])
 def get_one_student(student_id):
-    pass
+    students = Student.query.all()
+    all_students_ll = ll.LinkedList()
+    
+    for student in students:
+        all_students_ll.insert_beginning(
+            {
+                "id":student.id,
+                "name":student.name,
+                "email":student.email,
+                "address":student.address,
+                "phone":student.phone
+            }
+        )
+    user = all_students_ll.get_student_by_id(student_id)
+    if user is None:
+        return jsonify({"message": "Not found."}), 200
+    return jsonify(user), 200
 
 @app.route("/student/<student_id>", methods=["DELETE"])
 def delete_student(student_id):
