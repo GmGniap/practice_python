@@ -5,4 +5,4 @@ app.config['SECRET_KEY'] = '0e748eccc059ded6ce6e0d7cb3f6b302'   ## need for secu
 import routes
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True)     ## For security, need to change to debug=False before deploy.

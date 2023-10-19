@@ -30,6 +30,7 @@ def about():
 def login():
     return "Login"
 
-@app.route("/register")
+@app.route("/register", methods=['GET', 'POST'])
 def register():
-    return "Register"
+    form = RegistrationForm()
+    return render_template('register.html', title='Register Form', form=form)
