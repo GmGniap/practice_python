@@ -8,6 +8,11 @@ This repo contains -
 
 ## Project List :blue_book:
 
+### **2023 code**
+#### Flask Blog Tutorial
+- Learn Flask by following Corey Schafer's [Youtube Playlist](https://www.youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)
+
+
 ### **2022 code**
 #### **Price Monitoring Project**
   - [Project README](2022_code/README.md#burma-price-monitor)
