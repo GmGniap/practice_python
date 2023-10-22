@@ -1,0 +1,12 @@
+{%extends 'base.html' %}
+
+{% block content%}
+    <h1>{% block title%} Comments {%endblock%}</h1>
+    <div style="width: 50%; margin: auto">
+        {% for comment in comments %}
+        <div style="padding: 10px; background-color: rgb(3, 246, 246); margin: 20px">
+            <p style="font-size: 24px; color: black">{{ comment }} </p>
+        </div>
+        {% endfor %}
+    </div>
+{%endblock%}
