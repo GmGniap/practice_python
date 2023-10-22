@@ -10,18 +10,18 @@
                 </legend>
 
                 <!--why this class name is the same as fieldset?-->
-                <!-- Username -->
+                <!-- Fullname -->
                 <div class="form-group">
-                    {{form.username.label(class="form-control-label")}}
-                    {% if form.username.errors %}
-                        {{ form.username(class="form-control form-control-lg is-invalid")}}
+                    {{form.fullname.label(class="form-control-label")}}
+                    {% if form.fullname.errors %}
+                        {{ form.fullname(class="form-control form-control-lg is-invalid")}}
                         <div class="invalid-feedback">
-                            {% for error in form.username.errors %}
+                            {% for error in form.fullname.errors %}
                                 <span>{{error}}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.username(class = "form-control form-control-lg")}}
+                        {{ form.fullname(class = "form-control form-control-lg")}}
                     {% endif %}
                 </div>
 
@@ -38,6 +38,20 @@
                     {% else %}
                         {{ form.email(class= "form-control form-control-lg")}}
     
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{form.password.label(class= "form-control-label")}}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.password(class="form-control form-control-lg")}}
                     {% endif %}
                 </div>
 
