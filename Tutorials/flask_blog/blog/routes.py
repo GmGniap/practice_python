@@ -46,18 +46,21 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     
-    print(request.args)
-    print(request.form)
-    print("---x---")
-    email = request.form.get("email")
-    password = request.form.get("password")
+    # print(request.args)
+    # print(request.form)
+    # print("---x---")
+    if request.method == "POST":
+        email = request.form.get("email")
+        password = request.form.get("password")
     
-    user = User.query.filter_by(email=email).first()
-    if user and (user.password == password):
-        login_user(user, remember=False)
-        return redirect(url_for('home'))
-    else:
-        flash('Login Unsuccesful.')
+        ## Validation process will be here
+    
+        user = User.query.filter_by(email=email).first()
+        if user and (user.password == password):
+            login_user(user, remember=False)
+            return redirect(url_for('home'))
+        else:
+            flash('Login Unsuccesful.')
     return render_template('login.html')
 
 @app.route("/logout")
