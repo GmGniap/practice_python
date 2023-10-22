@@ -28,6 +28,11 @@ def home():
 def about():
     return render_template("about.html", title="About")
 
+@app.route('/child')
+def child():
+    user = {'username': 'Paing'}
+    return render_template('child.html', utc_dt= datetime.datetime.utcnow())
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -46,9 +51,6 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     
-    # print(request.args)
-    # print(request.form)
-    # print("---x---")
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
