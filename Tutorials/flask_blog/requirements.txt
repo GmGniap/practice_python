@@ -117,7 +117,7 @@ pycparser==2.21
 pydata-google-auth==1.4.0
 PyDispatcher==2.0.5
 pyee==9.0.4
-Pygments==2.13.0
+Pygments==2.15.0
 pyOpenSSL==22.0.0
 pyparsing==3.0.9
 pyppeteer==1.0.2
