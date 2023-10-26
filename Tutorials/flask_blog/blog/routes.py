@@ -1,8 +1,9 @@
-from flask import render_template, url_for, flash, redirect, request
+from flask import render_template, url_for, flash, redirect, request, jsonify
 from blog import app, db
 from blog.forms import RegistrationForm
 from blog.models import User, Post
-from flask_login import login_user, current_user, logout_user
+from flask_login import login_user, current_user, logout_user, login_required
+import json
 
 posts = [
     {
@@ -52,6 +53,8 @@ def login():
         return redirect(url_for('home'))
     
     if request.method == "POST":
+        check = request.is_json
+        print(check)
         email = request.form.get("email")
         password = request.form.get("password")
     
@@ -69,3 +72,9 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for("home"))
+
+@app.route("/profile")
+@login_required
+def profile():
+    image_file = url_for('static', filename='profile_pics/'+ current_user.img_file)
+    return render_template("profile.html", title="Profile", image_file=image_file)
