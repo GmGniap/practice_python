@@ -39,6 +39,10 @@ def full_name(short_name):
         return country_data["data"][short_name]["country"]
 
 
+## Simple Calculator - Add function, Substract , Divide , Multiply
+## We'll use TDD method to write
+
+
 ## To test main_func()
 def test_full_name():
     short = short_code("paing")

@@ -5,6 +5,8 @@
 *.twbx
 *.xlsx
 *.xml
+*.txt
+!mlbb_hero.csv
 
 Tutorials/relational_sql/covid19.db
 Tutorials/rename_photo/all_data
