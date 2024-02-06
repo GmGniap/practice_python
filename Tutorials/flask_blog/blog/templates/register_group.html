@@ -1,0 +1,219 @@
+{% extends "layout.html"%}
+{%block title%}Register{%endblock%}
+
+{% block content %}
+
+<nav class=" navbar navbar-expand-lg nav-decoration m-50-bt">
+    <div class=" container">
+      <a class="navbar-brand royal-blue" href="/">Guide4U</a>
+    </div>
+</nav>
+<div class=" container-fluid">
+<div class=" w-100 m-auto">
+<div class="row">
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+<div class="col-md-4 col-10">
+<form class="px-4 py-3 rounded-3 form-decoration" id="register" action="/register" method="POST">
+    <h1 class="h3 mb-3 fw-normal text-center">Please fill out this form to register!</h1>
+
+    <div class="d-flex justify-content-center">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="usertype" id="student" value="student" required>
+            <label class="form-check-label" for="student" class="required">Student</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="usertype" id="tutor" value="tutor" required>
+            <label class="form-check-label" for="tutor" class="required">Tutor</label>
+        </div>
+    </div>
+
+    {% if flag == 1 %}
+    <h1>{{flag}}</h1>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="Full Name" name="fullname" placeholder="Full Name" required>
+        <label for="Full Name" class=" required">Full Name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input id="email" type="text" class="form-control" id="floatingEmail" name="email" placeholder="name@example.com" required>
+        <label for="floatingEmail" class="required">Email address</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input id="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password1" required>
+        <label for="floatingPassword" class="required">Password</label>
+    </div>
+    {% endif %}
+
+    <div class="form-floating mb-3">
+        <input id="confirmedPassword" type="password" class="form-control" id ="floatingPassword" placeholder="Confirmed Password" name="password2" required>
+        <label for="floatingPassword" class="required">Confirm Password</label>
+    </div>
+
+    <div class="d-flex justify-content-end mb-3">
+        <label for="" class="me-auto">Gender</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="Male" value="male" required>
+            <label class="form-check-label" for="Male">Male</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="Female" value="female" required>
+            <label class="form-check-label" for="Female">Female</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="non-binary" value="non-binary" required>
+            <label class="form-check-label" for="non-binary">Non Binary</label>
+        </div>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input id="age" type="number" class="form-control" id="floatingAge" name="age" placeholder="69">
+        <label for="floatingAge">Age</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input id="address" type="text" class="form-control" id="floatingAddress" name="address" placeholder="Address">
+        <label for="floatingAddress">Address</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input id="phone" type="text" class="form-control" id="floatingPhone" name="phone" placeholder="09123456789">
+        <label for="floatingPhone">Phone Number</label>
+    </div>
+
+    <div class="student-fields" style="display: none">
+        <div class="form-floating mb-3">
+            <select class="form-select form-control" id="current_education" name="current_education">
+                <option value="" disabled selected>Select Current Education</option>
+                <option value="High School">High School</option>
+                <option value="Middle School">Middle School</option>
+                <option value="Elementary School">Elementary School</option>
+                <option value="Undergraduate">Undergraduate</option>
+                <option value="Postgraduate">Postgraduate</option>
+            </select>
+        </div>
+        <div class="form-floating mb-3">
+            <select class="form-select form-control" id="interested_subjects" name="interested_subjects">
+                <option value="" disabled selected>Interested Subjects</option>
+                <option value="Myanmar">Myanmar</option>
+                <option value="English">English</option>
+                <option value="Maths">Maths</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Physics">Physics</option>
+                <option value="Biology">Biology</option>
+                <option value="Ecology">Ecology</option>
+            </select>
+            <!-- <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="interested_subjects" name="interested_subjects" placeholder="Enter interested subjects">
+                <label for="interested_subjects">Interested Subjects</label>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="tutor-fields" style="display: none">
+        <div class="form-floating mb-3">
+            <select class="form-select form-control" id="current_education_tutor" name="current_education">
+                <option value="" disabled selected>Select Current Education</option>
+                <option value="Undergraduate">Undergraduate</option>
+                <option value="Postgraduate">Postgraduate</option>
+            </select>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="experience" name="experience" placeholder="Enter experience">
+            <label for="experience">Experience (Optional)</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="available_time" name="available_time" placeholder="Enter available time">
+            <label for="available_time">Available Time</label>
+        </div>
+        <div class="form-floating mb-3">
+            <select class="form-select form-control" id="teaching_subjects" name="teaching_subjects">
+                <option value="" disabled selected>Teaching Subjects</option>
+                <option value="Myanmar">Myanmar</option>
+                <option value="English">English</option>
+                <option value="Maths">Maths</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Physics">Physics</option>
+                <option value="Biology">Biology</option>
+                <option value="Ecology">Ecology</option>
+            </select>
+            <!-- <input type="text" class="form-control" id="teaching_subjects" name="teaching_subjects" placeholder="Enter teaching subjects">
+            <label for="teaching_subjects">Teaching Subjects</label> -->
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" min="1000" step="1000" class="form-control" id="fees_per_hour" name="fees_per_hour" placeholder="Enter fees per hour">
+            <label for="fees_per_hour">Fees per hour</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="biography" name="biography" placeholder="Enter biography/quote">
+            <label for="biography">Biography/Quote (Optional)</label>
+        </div>
+    </div>
+
+    <div class="form-check" id="terms" style="display: none;">
+        <input class="form-check-input" type="checkbox" id="accept_terms" name="accept_terms" onclick="enable_button()" required>
+        <label class="form-check-label" for="accept_terms">By clicking, I agree to Terms & Conditions</label>
+    </div>
+
+    <!-- Button -->
+    <button class="btn-decoration btn rounded-2 w-100 py-2" id="next_button" type="button">
+        Please choose Student or Tutor to continue registration
+    </button>
+    <button type="submit" class="btn-decoration btn rounded-2 w-100 py-2" id="sign_up_button" style="display: none;" disabled>
+        Register
+    </button>
+
+    <p>Already have an account? <a href="/login" class="royal-blue">Login</a></p>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script>
+    function enable_button() {
+        var checkbox = document.getElementById("accept_terms");
+        var button = document.getElementById("sign_up_button");
+        if (checkbox.checked) {
+            button.disabled = false;
+        }
+        else{
+            button.disabled = true;
+        }
+    }
+    document.getElementById("accept_terms").addEventListener("change", enable_button);
+
+    enable_button();
+</script>
+
+
+<script>
+    function updateDisplayedFields() {
+        const usertype = document.querySelector('input[name="usertype"]:checked').value;
+        if (usertype === "student") {
+            document.querySelector('.student-fields').style.display = "block";
+            document.querySelector('.tutor-fields').style.display = "none";
+        } else if (usertype === "tutor") {
+            document.querySelector('.student-fields').style.display = "none";
+            document.querySelector('.tutor-fields').style.display = "block";
+        }
+
+        document.getElementById("next_button").style.display = "none";
+        document.getElementById("sign_up_button").style.display = "block";
+        document.getElementById("terms").style.display = "block";
+    }
+
+    // Add event listener to the radio buttons for user type selection
+    document.getElementById("student").addEventListener("change", updateDisplayedFields);
+    document.getElementById("tutor").addEventListener("change", updateDisplayedFields);
+
+    // Initial call to updateDisplayedFields to set the initial state
+    updateDisplayedFields();
+</script>
+
+{% endblock %}

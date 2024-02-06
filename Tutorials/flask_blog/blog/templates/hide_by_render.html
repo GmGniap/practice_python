@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIde by Render</title>
+</head>
+<body>
+    {% for k, v in abc.items() %}
+        {% if v == "1" %}
+            <label for="{{k}}"> {{k}} is </label>
+            <input type="text" id = "{{k}}" name="{{k}}"><br>
+        {% endif %}
+    {% endfor %}
+    
+</body>
+</html>
