@@ -8,6 +8,12 @@
 *.txt
 !mlbb_hero.csv
 
+# Ignore all environment folder
+**/environment/
+**/__pycache__/
+**/.exercism/
+
+
 Tutorials/relational_sql/covid19.db
 Tutorials/rename_photo/all_data
 Tutorials/rename_photo/all_data_copy
@@ -28,6 +34,7 @@ Tutorials/hotels/Taninthahyi_files
 2022_code/environment
 2022_code/html
 ./environment
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
